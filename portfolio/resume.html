@@ -1,0 +1,513 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Maker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f2f2f2;
+    }
+
+    .container {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .form {
+        width: 40%;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+    }
+
+    .form h2 {
+        margin-bottom: 1rem;
+    }
+
+    .form input,
+    .form textarea {
+        width: 100%;
+        padding: 0.6rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .form button {
+        padding: 0.6rem 1rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+    }
+
+    .resume {
+        width: 60%;
+        background: white;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        display: none;
+    }
+
+    .resume h1 {
+        margin-bottom: 0.2rem;
+    }
+
+    .resume h3 {
+        color: gray;
+    }
+
+    .resume h2 {
+        margin-top: 1.2rem;
+        border-bottom: 2px solid #000;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="form">
+            <h2>Resume Maker</h2>
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="text" id="role" placeholder="Role / Profession" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="number" id="phone" placeholder="Phone" required>
+            <textarea id="summary" placeholder="About You"></textarea>
+
+            <div>
+                <h3>Education</h3>
+                <input type="text" id="education-input" placeholder="">
+                <button type="button" onclick="addItem('education')">Add</button>
+                <ul id="education-list"></ul>
+            </div>  
+
+            <div>
+                <h3>Skills</h3>
+                <input type="text" id="skills-input" placeholder="">
+                <button type="button" onclick="addItem('skills')">Add</button>
+                <ul id="skills-list"></ul>
+            </div>
+
+            <div>
+                <h3>Achievements</h3>
+                <input type="text" id="achievements-input" placeholder="">
+                <button type="button" onclick="addItem('achievements')">Add</button>
+                <ul id="achievements-list"></ul>
+            </div>
+
+            <div>
+                <h3>Projects</h3>
+                <input type="text" id="projects-input" placeholder="">
+                <button type="button" onclick="addItem('projects')">Add</button>
+                <ul id="projects-list"></ul>
+            </div>
+
+            <div>
+                <h3>Experience</h3>
+                <input type="text" id="experience-input" placeholder="">
+                <button type="button" onclick="addItem('experience')">Add</button>
+                <ul id="experience-list"></ul>
+            </div>
+
+            <div>
+                <h3>Language</h3>
+                <input type="text" id="language-input" placeholder="">
+                <button type="button" onclick="addItem('language')">Add</button>
+                <ul id="language-list"></ul>
+            </div>
+
+            <div>
+                <h3>Hobbies</h3>
+                <input type="text" id="hobbies-input" placeholder="">
+                <button type="button" onclick="addItem('hobbies')">Add</button>
+                <ul id="hobbies-list"></ul>
+            </div>
+
+            <button onclick="generateResume()">Generate Resume</button>
+            <button onclick="">Download Pdf</button>
+
+        </div>
+
+        <div class="resume" id="resume">
+
+            <h1 id="r-name">👤 Your Name</h1>
+            <h3 id="r-role">💼 Your Role</h3>
+
+            <p>📧<b>Email:</b> <span id="r-email"></span></p>
+            <p>📞<b>Phone:</b> <span id="r-phone"></span></p>
+
+            <h2>Profile</h2>
+            <p id="r-summary">
+                About yourself will appear here
+            </p>
+
+            <h2>Education</h2>
+            <ul id="r-education"></ul>
+
+            <h2>Skills</h2>
+            <ul id="r-skills"></ul>
+
+            <h2>Achievements</h2>
+            <ul id="r-achievements"></ul>
+
+            <h2>Projects</h2>
+            <ul id="r-projects"></ul>
+
+            <h2>Experience</h2>
+            <ul id="r-experience"></ul>
+
+            <h2>Languages</h2>
+            <ul id="r-language"></ul>
+
+            <h2>Hobbies</h2>
+            <ul id="r-hobbies"></ul>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        function addItem(section) {
+            let input = document.getElementById(section + "-input");
+            let value = input.value.trim();
+            if (!value) return;
+            let ul = document.getElementById(section + "-list");
+            let li = document.createElement("li");
+            li.innerText = value;
+
+            let btn = document.createElement("button");
+            btn.innerText = "✖";
+            btn.onclick = function () { ul.removeChild(li); };
+            li.appendChild(btn);
+
+            ul.appendChild(li);
+            input.value = "";
+        }
+
+        function generateResume() {
+            setText("r-name", "name", "Your Name");
+            setText("r-role", "role", "Your Role");
+            setText("r-email", "email");
+            setText("r-phone", "phone");
+            setText("r-summary", "summary");
+            
+            copyList("education");
+            copyList("skills");
+            copyList("achievements");
+            copyList("projects");
+            copyList("experience");
+            copyList("language");
+            copyList("hobbies");
+            document.getElementById("resume").style.display = "block";
+        }
+
+        function setText(outputId, inputId, defaultText = "") {
+            document.getElementById(outputId).innerText = document.getElementById(inputId).value || defaultText;
+        }
+
+        function copyList(section) {
+            let from = document.getElementById(section + "-list");
+            let to = document.getElementById("r-" + section);
+            to.innerHTML = "";
+
+            from.querySelectorAll("li").forEach(li => {
+                let item = document.createElement("li");
+                item.innerText = li.firstChild.textContent;
+                to.appendChild(item);
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Maker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3rem;
+            padding: 3rem;
+        }
+
+
+        .form {
+            width: 420px;
+            background: linear-gradient(180deg, #ffffff, #f9f9f9);
+            padding: 2.2rem;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .form h3 {
+            margin-top: 1.4rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            transition: all 0.25s ease;
+        }
+
+        .form input:focus,
+        .form textarea:focus {
+            outline: none;
+            border-color: #000;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .form button {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.2s ease;
+        }
+
+        .form button[type="button"] {
+            background: #eaeaea;
+            margin-bottom: 0.4rem;
+        }
+
+        .form button[type="button"]:hover {
+            background: #d6d6d6;
+        }
+
+        .form>button:last-of-type {
+            width: 100%;
+            margin-top: 2rem;
+            background: #000;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form>button:last-of-type:hover {
+            background: #222;
+        }
+
+        .form ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+
+        .form ul li {
+            background: #f1f1f1;
+            padding: 0.4rem 0.6rem;
+            border-radius: 999px;
+            margin-bottom: 0.4rem;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form ul li button {
+            background: transparent;
+            color: red;
+            font-size: 0.75rem;
+        }
+
+        .resume {
+            width: 60%;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .resume h2 {
+            margin-top: 1.2rem;
+            border-bottom: 2px solid #000;
+        }
+
+
+        .resume h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="form">
+            <h2>Resume Maker</h2>
+
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="text" id="role" placeholder="Role / Profession">
+            <input type="email" id="email" placeholder="Email">
+            <input type="number" id="phone" placeholder="Phone">
+            <textarea id="summary" placeholder="About You"></textarea>
+
+            <h3>Education</h3>
+            <input type="text" id="education-input">
+            <button type="button" onclick="addItem('education')">Add</button>
+            <ul id="education-list"></ul>
+
+            <h3>Skills</h3>
+            <input type="text" id="skills-input">
+            <button type="button" onclick="addItem('skills')">Add</button>
+            <ul id="skills-list"></ul>
+
+            <h3>Projects</h3>
+            <input type="text" id="projects-input">
+            <button type="button" onclick="addItem('projects')">Add</button>
+            <ul id="projects-list"></ul>
+
+            <h3>Experience</h3>
+            <input type="text" id="experience-input">
+            <button type="button" onclick="addItem('experience')">Add</button>
+            <ul id="experience-list"></ul>
+
+            <h3>Achievements</h3>
+            <input type="text" id="achievements-input">
+            <button type="button" onclick="addItem('achievements')">Add</button>
+            <ul id="achievements-list"></ul>
+
+            <button onclick="addCustom()">Add Section</button>
+            <button onclick="generateResume()">Generate Resume</button>
+            <button onclick="downloadPDF()">Download PDF</button>
+
+        </div>
+
+        <div class="resume" id="resume">
+            <h1 id="r-name"></h1>
+            <h3 id="r-role"></h3>
+
+            <p><b>Email:</b> <span id="r-email"></span></p>
+            <p><b>Phone:</b> <span id="r-phone"></span></p>
+
+            <h2>Profile</h2>
+            <p id="r-summary"></p>
+
+            <h2>Education</h2>
+            <ul id="r-education"></ul>
+
+            <h2>Skills</h2>
+            <ul id="r-skills"></ul>
+
+            <h2>Projects</h2>
+            <ul id="r-projects"></ul>
+
+            <h2>Experience</h2>
+            <ul id="r-experience"></ul>
+
+            <h2>Achievements</h2>
+            <ul id="r-achievements"></ul>
+
+        </div>
+
+    </div>
+
+    <script>
+        function addItem(section) {
+            let input = document.getElementById(section + "-input");
+            let value = input.value.trim();
+            if (!value) return;
+
+            let ul = document.getElementById(section + "-list");
+            let li = document.createElement("li");
+            li.innerText = value;
+
+            let btn = document.createElement("button");
+            btn.innerText = "✖";
+            btn.onclick = () => ul.removeChild(li);
+
+            li.appendChild(btn);
+            ul.appendChild(li);
+            input.value = "";
+        }
+
+        function generateResume() {
+            setText("r-name", "name");
+            setText("r-role", "role");
+            setText("r-email", "email");
+            setText("r-phone", "phone");
+            setText("r-summary", "summary");
+
+            copyList("education");
+            copyList("skills");
+            copyList("projects");
+            copyList("experience");
+            copyList("achievements");
+
+            document.getElementById("resume").style.display = "block";
+        }
+
+        function setText(out, inp) {
+            document.getElementById(out).innerText =
+                document.getElementById(inp).value;
+        }
+
+        function copyList(section) {
+            let from = document.getElementById(section + "-list");
+            let to = document.getElementById("r-" + section);
+            to.innerHTML = "";
+
+            from.querySelectorAll("li").forEach(li => {
+                let item = document.createElement("li");
+                item.innerText = li.firstChild.textContent;
+                to.appendChild(item);
+            });
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+
+    </script>
+
+</body>
+
+</html>

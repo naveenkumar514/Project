@@ -1,0 +1,758 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: rgb(255, 255, 255);
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: black;
+    }
+
+    .logo {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(206, 20, 20);
+    }
+
+    select {
+        padding: 8px;
+        background-color: black;
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(68, 68, 68);
+    }
+
+    .section1 {
+        text-align: center;
+        padding: 80px 20px;
+        border-bottom: 4px solid #222;
+    }
+
+    .section1 h1 {
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+
+    .section1 h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .section1 p {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .section1 button {
+        margin: 5px;
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: rgb(229, 9, 20);
+        border: none;
+        color: white;
+    }
+
+    .section1 input {
+        margin: 5px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .section2 {
+        padding: 40px 50px;
+        border-bottom: 4px solid rgb(34, 34, 34);
+        text-align: center;
+    }
+
+    .section2 h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .box1 {
+        display: inline-block;
+        width: 180px;
+        height: 270px;
+        background-color: rgb(17, 17, 17);
+        margin: 10px;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        vertical-align: top;
+    }
+
+    .box1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .box1:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    }
+
+    .section3 {
+        padding: 50px;
+        border-bottom: 4px solid #222;
+        background-color: black;
+        text-align: center;
+    }
+
+    .section3 h3 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: white;
+        width: 100%;
+    }
+
+    .section3 .box2 {
+        background-color: rgb(17, 17, 17);
+        width: 190px;
+        height: 250px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        margin: 20px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    .section3 .box2 h2 {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .section3 .box2 p {
+        font-size: 15px;
+        color: #bbb;
+        margin-bottom: 20px;
+    }
+
+    .section3 .box2 img {
+        width: 64px;
+        height: 64px;
+        display: block;
+        margin-top: 10px;
+    }
+
+
+    .section4 {
+        padding: 40px 50px;
+        border-bottom: 4px solid rgb(34, 34, 34);
+        text-align: center;
+    }
+
+    .section4 h3 {
+        font-size: 26px;
+        margin-bottom: 20px;
+        display: flex;
+    }
+
+    .section4 button {
+        display: block;
+        width: 50%;
+        margin: 10px auto;
+        padding: 15px;
+        font-size: 18px;
+        background-color: rgb(48, 48, 48);
+        color: white;
+        border: none;
+        text-align: left;
+    }
+
+    .footer {
+        background-color: rgb(17, 17, 17);
+        padding: 40px 50px;
+        color: rgb(153, 153, 153);
+    }
+
+    .footer .upper {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .footer .upper button {
+        margin: 5px;
+        padding: 12px 25px;
+        font-size: 16px;
+        background-color: rgb(229, 9, 20);
+        border: none;
+        color: white;
+    }
+
+    .footer .upper input {
+        margin: 5px;
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .footer h4 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: white;
+    }
+
+    .footer-column {
+        display: inline-block;
+        width: 23%;
+        vertical-align: top;
+        margin-right: 1%;
+        margin-bottom: 30px;
+    }
+
+    .footer-column a {
+        display: block;
+        color: rgb(153, 153, 153);
+        text-decoration: none;
+        margin: 8px 0;
+        font-size: 14px;
+    }
+
+    .lower {
+        margin-top: 30px;
+        text-align: left;
+    }
+
+    .lower h5 {
+        margin: 15px 0;
+        font-size: 16px;
+        color: white;
+    }
+
+
+    @media (max-width: 1024px) {
+
+        .box1 {
+            width: 45%;
+            height: 118vh;
+        }
+
+        .box2 {
+            width: 45%;
+            height: auto;
+        }
+
+        .footer-column {
+            width: 45%;
+            margin-right: 5%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .section1 h1 {
+            font-size: 32px;
+        }
+
+        .section1 h4 {
+            font-size: 20px;
+        }
+
+        .section1 p {
+            font-size: 16px;
+        }
+
+        .section1 input,
+        .section1 button {
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .section2 .box1,
+        .section3 .box2 {
+            width: 45%;
+            height: auto;
+        }
+
+        .section4 button {
+            width: 90%;
+            font-size: 16px;
+        }
+
+        .footer .footer-column {
+            width: 45%;
+            margin-bottom: 20px;
+        }
+
+        .footer .upper input,
+        .footer .upper button {
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .footer .lower {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section1 h1 {
+            font-size: 24px;
+        }
+
+        .section1 h4 {
+            font-size: 16px;
+        }
+
+        .section1 p {
+            font-size: 14px;
+        }
+
+        .section1 input,
+        .section1 button {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .section2 .box1,
+        .section3 .box2 {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        .section3 h3 {
+            font-size: 24px;
+        }
+
+        .section4 button {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .footer .footer-column {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .footer .upper input,
+        .footer .upper button {
+            width: 100%;
+        }
+
+        .footer .lower h5,
+        .footer .lower p {
+            text-align: center;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="logo">NETFLIX</div>
+        <div>
+            <select name="language" required>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section1">
+        <h1>Unlimited movies, TV shows and more</h1>
+        <h4>Starts at ₹149. Cancel at any time.</h4>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <input type="email" placeholder="Email address" class="email-input">
+        <button>Get Started ></button>
+    </div>
+
+    <div class="section2">
+        <h3>Trending Now</h3>
+        <div class="box1">
+            <img src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/Tehran_Poster_1673275195.jpg"
+                alt="">
+        </div>
+        <div class="box1">
+            <img src="https://i.pinimg.com/736x/ee/38/36/ee3836c2c4268198af0e9d7abe13c4a2.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="https://images.plex.tv/photo?size=large-1280&url=https%3A%2F%2Fmetadata-static.plex.tv%2F8%2Fgracenote%2F864a13e0df0ad559f8e79b39a4e28ec4.jpg"
+                alt="">
+        </div>
+        <div class="box1">
+            <img src="https://www.acmodasi.in/amdb/images/movie/b/p/saiyaara-2025-iSqBuU.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="section3">
+        <h3>More reasons to join</h3>
+        <div class="box2">
+            <h2>Enjoy on your TV</h2>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray player and more.</p>
+            <img src="img/icons8-computer-48.png" alt="">
+        </div>
+        <div class="box2">
+            <h2>Download your shows to watch offline</h2>
+            <p>Save your favourites easily and always have something to watch.</p>
+            <img src="img/icons8-download-64.png" alt="">
+        </div>
+        <div class="box2">
+            <h2>Watch everywhere</h2>
+            <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+            <img src="img/icons8-binoculars-64.png" alt="">
+        </div>
+        <div class="box2">
+            <h2>Create profiles for kids</h2>
+            <p>Send kids on adventures with their favourite characters in a space made just for them — free with your
+                membership.</p>
+            <img src="img/icons8-kids-64.png" alt="">
+        </div>
+    </div>
+
+    <div class="section4">
+        <h3>Frequently Asked Questions</h3>
+        <button>What is Netflix?</button>
+        <button>How much does Netflix cost?</button>
+        <button>Where can I watch?</button>
+        <button>How do I cancel?</button>
+        <button>What can I watch on Netflix?</button>
+        <button>Is Netflix good for kids?</button>
+    </div>
+
+    <div class="footer">
+        <div class="upper">
+            <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+            <input type="email" placeholder="Email address" class="email-input">
+            <button>Get Started ></button>
+        </div>
+        <h4>Questions? Call 000-800-919-1743</h4>
+
+        <div class="footer-column">
+            <a href="#">FAQ</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Privacy</a>
+            <a href="#">Speed Test</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Help Centre</a>
+            <a href="#">Jobs</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Legal Notices</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Account</a>
+            <a href="#">Ways to Watch</a>
+            <a href="#">Corporate Information</a>
+            <a href="#">Only on Netflix</a>
+        </div>
+        <div class="footer-column">
+            <a href="#">Media Centre</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="lower">
+            <select name="language" required>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+            <h5>Netflix India</h5>
+            <p>This page is protected by Google reCAPTCHA to ensure you are not a bot. <a href="">Learn more.</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix Clone</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:black;
+    color:white;
+}
+
+/* ---------- HEADER ---------- */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+}
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#e50914;
+}
+select{
+    padding:8px;
+    background:black;
+    color:white;
+    border:1px solid #444;
+}
+
+/* ---------- SECTION 1 ---------- */
+.section1{
+    text-align:center;
+    padding:80px 20px;
+    border-bottom:4px solid #222;
+}
+.section1 h1{font-size:45px;}
+.section1 h4{font-size:24px;}
+.section1 p{font-size:18px;}
+
+.section1 input{
+    width:320px;
+    max-width:90%;
+    padding:14px;
+    font-size:16px;
+    border:none;
+    margin:5px;
+}
+.section1 button{
+    padding:14px 24px;
+    font-size:16px;
+    background:#e50914;
+    border:none;
+    color:white;
+    margin:5px;
+    cursor:pointer;
+}
+
+/* ---------- SECTION 2 ---------- */
+.section2{
+    padding:40px 50px;
+    border-bottom:4px solid #222;
+    text-align:center;
+}
+.section2 h3{font-size:24px;}
+
+.box1{
+    display:inline-block;
+    width:180px;
+    height:270px;
+    margin:10px;
+    background:#111;
+    overflow:hidden;
+    border-radius:8px;
+}
+.box1 img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* ---------- SECTION 3 ---------- */
+.section3{
+    padding:50px;
+    border-bottom:4px solid #222;
+    text-align:center;
+}
+.section3 h3{font-size:32px;}
+
+.box2{
+    background:#111;
+    width:190px;
+    height:250px;
+    padding:20px;
+    border-radius:8px;
+    display:inline-block;
+    margin:20px;
+    vertical-align:top;
+    text-align:left;
+}
+.box2 h2{font-size:20px;}
+.box2 p{font-size:15px;color:#bbb;}
+.box2 img{
+    width:56px;
+    height:56px;
+    object-fit:contain;
+    margin-top:10px;
+}
+
+/* ---------- SECTION 4 ---------- */
+.section4{
+    padding:40px 50px;
+    border-bottom:4px solid #222;
+    text-align:center;
+}
+.section4 h3{font-size:26px;}
+.section4 button{
+    display:block;
+    width:50%;
+    margin:10px auto;
+    padding:15px;
+    font-size:18px;
+    background:#303030;
+    color:white;
+    border:none;
+}
+
+/* ---------- FOOTER ---------- */
+.footer{
+    background:#111;
+    padding:40px 50px;
+    color:#999;
+}
+.footer .upper{text-align:center;}
+.footer .upper input{
+    width:320px;
+    max-width:90%;
+    padding:14px;
+    font-size:16px;
+    border:none;
+    margin:5px;
+}
+.footer .upper button{
+    padding:14px 24px;
+    font-size:16px;
+    background:#e50914;
+    border:none;
+    color:white;
+    margin:5px;
+}
+.footer-column{
+    display:inline-block;
+    width:23%;
+    vertical-align:top;
+}
+.footer-column a{
+    display:block;
+    color:#999;
+    text-decoration:none;
+    margin:8px 0;
+    font-size:14px;
+}
+.lower{margin-top:30px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+    .box1{width:160px;height:240px;}
+    .box2{width:45%;height:auto;}
+    .footer-column{width:45%;}
+}
+
+@media(max-width:768px){
+    .header{flex-direction:column;align-items:flex-start;}
+    .section1 input,.section1 button,
+    .footer .upper input,.footer .upper button{
+        width:90%;
+        display:block;
+        margin:10px auto;
+    }
+    .box1{width:45%;height:230px;}
+    .box2{width:90%;margin:15px auto;}
+    .section4 button{width:90%;}
+}
+
+@media(max-width:480px){
+    .section1 h1{font-size:24px;}
+    .section1 h4{font-size:16px;}
+    .section1 p{font-size:14px;}
+    .box1{width:90%;height:260px;}
+    .footer-column{width:100%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">NETFLIX</div>
+    <select>
+        <option>English</option>
+        <option>Hindi</option>
+    </select>
+</div>
+
+<div class="section1">
+    <h1>Unlimited movies, TV shows and more</h1>
+    <h4>Starts at ₹149. Cancel at any time.</h4>
+    <p>Ready to watch? Enter your email to create or restart your membership.</p>
+    <input type="email" placeholder="Email address">
+    <button>Get Started ></button>
+</div>
+
+<div class="section2">
+    <h3>Trending Now</h3>
+    <div class="box1"><img src="https://assets.gadgets360cdn.com/pricee/assets/product/202301/Tehran_Poster_1673275195.jpg"></div>
+    <div class="box1"><img src="https://i.pinimg.com/736x/ee/38/36/ee3836c2c4268198af0e9d7abe13c4a2.jpg"></div>
+    <div class="box1"><img src="https://images.plex.tv/photo?size=large-1280&url=https%3A%2F%2Fmetadata-static.plex.tv%2F8%2Fgracenote%2F864a13e0df0ad559f8e79b39a4e28ec4.jpg"></div>
+    <div class="box1"><img src="https://www.acmodasi.in/amdb/images/movie/b/p/saiyaara-2025-iSqBuU.jpg"></div>
+</div>
+
+<div class="section3">
+    <h3>More reasons to join</h3>
+
+    <div class="box2">
+        <h2>Enjoy on your TV</h2>
+        <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray player and more.</p>
+        <img src="img/icons8-computer-48.png">
+    </div>
+
+    <div class="box2">
+        <h2>Download your shows to watch offline</h2>
+        <p>Save your favourites easily and always have something to watch.</p>
+        <img src="img/icons8-download-64.png">
+    </div>
+
+    <div class="box2">
+        <h2>Watch everywhere</h2>
+        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+        <img src="img/icons8-binoculars-64.png">
+    </div>
+
+    <div class="box2">
+        <h2>Create profiles for kids</h2>
+        <p>Send kids on adventures with their favourite characters.</p>
+        <img src="img/icons8-kids-64.png">
+    </div>
+</div>
+
+<div class="section4">
+    <h3>Frequently Asked Questions</h3>
+    <button>What is Netflix?</button>
+    <button>How much does Netflix cost?</button>
+    <button>Where can I watch?</button>
+    <button>How do I cancel?</button>
+    <button>What can I watch on Netflix?</button>
+    <button>Is Netflix good for kids?</button>
+</div>
+
+<div class="footer">
+    <div class="upper">
+        <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+        <input type="email" placeholder="Email address">
+        <button>Get Started ></button>
+    </div>
+    <h4>Questions? Call 000-800-919-1743</h4>
+</div>
+
+</body>
+</html>

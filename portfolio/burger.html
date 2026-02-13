@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: wheat;
+        font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    }
+
+    .container {
+        border: 20px solid white;
+        height: 350px;
+        width: 72%;
+        margin: 150px 165px;
+        border-radius: 35px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 8px 10px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav button {
+        background-color: transparent;
+        border: none;
+        font-size: 13px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .main {
+        width: 350px;
+        height: 110px;
+        text-align: center;
+        margin-left: 260px;
+    }
+
+    .main p {
+        margin-top: 3px;
+        color: whitesmoke;
+        font-size: 52px;
+        margin-left: -37px;
+    }
+
+    .main h1 {
+        position: relative;
+        top: -95px;
+        font-size: 88px;
+    }
+
+    .photo {
+        background: transparent;
+        margin-left: 287px;
+        margin-top: 25px;
+        z-index: 2;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: -70px 20px 0 20px;
+    }
+
+    .footer p {
+        color: white;
+    }
+
+    .socialmedia a img {
+        width: 30px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"><b>BurgerKing</b></div>
+            <div class="nav">
+                <button>HOME</button>
+                <button>PRODUCTS</button>
+                <button>PRICES</button>
+                <button>ABOUT US</button>
+            </div>
+        </div>
+        <div class="main">
+            <p><b>Need a</b></p>
+            <h1>Burger?</h1>
+        </div>
+        <div class="photo">
+            <img src="img/burger.jpg" alt="">
+        </div>
+        <div class="footer">
+            <div class="phone">
+                <p>+91 8219097779</p>
+            </div>
+            <div class="socialmedia">
+                <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="img/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

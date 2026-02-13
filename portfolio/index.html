@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naveen Kumar | Frontend Developer</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/281/281089.png" />
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        color: #111;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 75rem;
+        margin: auto;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        background: #000;
+        z-index: 1000;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        color: #fff;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .nav-links a {
+        margin-left: 1.5rem;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    .nav-links a:hover {
+        opacity: 1;
+    }
+
+    .hero {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        background: #f5f5f5;
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+        color: #444;
+    }
+
+    .hero p {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    .image img {
+        width: 18rem;
+        max-width: 100%;
+        border-radius: 25%;
+    }
+
+    .about {
+        padding: 5rem 0;
+        text-align: center;
+    }
+
+    .about h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .about p {
+        max-width: 40rem;
+        margin: auto;
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    .projects {
+        padding: 5rem 0;
+        background: #fafafa;
+    }
+
+    .projects h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        background: #fff;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+    }
+
+    .card img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+        color: #0077ff;
+    }
+
+    .contact {
+        padding: 5rem 0;
+        text-align: center;
+    }
+
+    .contact h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact p {
+        font-size: 1.1rem;
+        color: #444;
+    }
+
+    footer {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+        }
+
+        .nav-links a {
+            margin-left: 1rem;
+        }
+    }
+    
+</style>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">Naveen Kumar</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="text">
+                <h2>Hello, I'm</h2>
+                <h1>Frontend Developer</h1>
+                <p>Creating clean & meaningful web experiences</p>
+            </div>
+
+            <div class="image">
+                <img src="img/IMG_20250621_113158536_HDR_PORTRAIT[1].jpg" alt="Naveen Kumar">
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I’m a frontend developer who enjoys creating clean, modern and
+                responsive websites using HTML and CSS.
+
+                I create clean, modern and responsive websites using HTML, CSS and JavaScript.
+                As a fresher frontend developer, I am passionate about learning and building real-world projects.
+            </p>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2>My Work</h2>
+
+            <div class="grid">
+                <a class="card" href="netflix.html" target="_blank">
+                    <img src="img/netflix.avif" alt="Netflix Clone">
+                    <h3>Netflix Clone</h3>
+                </a>
+                <a class="card" href="instagram.html" target="_blank">
+                    <img src="img/instagram.avif" alt="Instagram Clone">
+                    <h3>Instagram Clone</h3>
+                </a>
+                <a class="card" href="index.html" target="_blank">
+                    <img src="img/portfolio.avif" alt="Portfolio Website">
+                    <h3>Portfolio Website</h3>
+                </a>
+                <a class="card" href="landing.html" target="_blank">
+                    <img src="img/landing.avif" alt="Landing Pages">
+                    <h3>Landing Pages</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: naveenkumar1232001@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Naveen Kumar | Frontend Developer</p>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveen Kumar | Frontend Developer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #000;
+            position: sticky;
+            top: 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .nav a {
+            color: #fff;
+            margin-left: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero h2 {
+            font-size: 1.6rem;
+            color: #444;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        .image img {
+            width: 280px;
+            border-radius: 25%;
+        }
+
+        /* ===== TEXT ANIMATION (SLOWER) ===== */
+        .hero .text h2,
+        .hero .text h1,
+        .hero .text h1,
+        .hero .text p {
+            opacity: 0;
+            transform: translateX(-150%);
+            animation: textSlide 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero .text h2 {
+            animation-delay: 0.2s;
+        }
+
+        .hero .text h1 {
+            animation-delay: 0.5s;
+        }
+
+        .hero .text p {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes textSlide {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===== IMAGE ANIMATION (DIFFERENT STYLE) ===== */
+        .hero .image img {
+            opacity: 0;
+            transform: scale(0.85);
+            animation: imageFadeFloat 1.6s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes imageFadeFloat {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">Naveen Kumar</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div class="text">
+                <h2>Hello, I'm</h2>
+                <h1>Frontend Developer</h1>
+                <p>Creating clean & meaningful web experiences. <br>
+                    A passionate frontend developer focused on creating modern, responsive
+                    and <br>visually appealing websites while continuously learning new technologies.</p>
+            </div>
+
+            <div class="image">
+                <img src="img/IMG_20250621_113158536_HDR_PORTRAIT[1].jpg" alt="Naveen Kumar">
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html> -->

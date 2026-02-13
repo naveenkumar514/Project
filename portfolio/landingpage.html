@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;  
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: rgb(242, 242, 242);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links a {
+            margin: 0 15px;
+            color: rgb(51, 51, 51);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .auth-buttons .register {
+            margin-right: 10px;
+            font-size: 14px;
+            color: rgb(51, 51, 51);
+            text-decoration: none;
+        }
+
+        .auth-buttons .signin {
+            padding: 6px 14px;
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 4px;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1555883006-37d106604feb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+            height: 80vh;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 80px 60px;
+            height: 100%;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 strong {
+            font-weight: 800;
+        }
+
+        .explore {
+            display: inline-block;
+            margin: 30px 0;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-box {
+            background: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 1000px;
+            margin-top: 70px;
+            color: rgb(0, 0, 0);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            background: rgb(241, 241, 241);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid rgb(204, 204, 204);
+        }
+
+        .search-btn {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 24px;
+            height: 48px;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                flex-direction: column;
+            }
+
+            .form-group {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">FlyHigh</div>
+        <nav class="nav-links">
+            <a href="#">Holiday Packages</a>
+            <a href="#">Flight Schedule</a>
+            <a href="#">Account Settings</a>
+            <a href="#">Manage Booking</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="register">Register</a>
+            <button class="signin">Sign In</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Hey Buddy! where are you <br><strong>Flying</strong> to?</h1>
+            <a href="#" class="explore">Explore Now →</a>
+            <div class="search-box">
+                <div class="tabs">
+                    <button class="tab active">✈ Flight</button>
+                    <button class="tab">🏨 Hotel</button>
+                    <button class="tab">🚗 Rent a Car</button>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="from">From</label>
+                        <input type="text" id="from" placeholder="Behance, USA">
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To</label>
+                        <input type="text" id="to" placeholder="Dribbble, South Africa">
+                    </div>
+                    <div class="form-group">
+                        <label for="departure">Departure</label>
+                        <input type="date" id="departure" value="2025-03-22">
+                    </div>
+                    <div class="form-group">
+                        <label for="return">Return</label>
+                        <input type="date" id="return" value="2025-04-02">
+                    </div>
+                    <button class="search-btn">Search Flights →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

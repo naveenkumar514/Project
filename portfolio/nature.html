@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        background-color: aliceblue;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 10px 45px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: black;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    .section1 {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(img/sea.jpg);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 500px;
+        color: whitesmoke;
+    }
+
+    .section1 h1 {
+        font-size: 30px;
+    }
+
+    .section1 p {
+        font-size: 20px;
+    }
+
+    .section2 {
+        background-image: url(https://images.unsplash.com/photo-1705562708310-78069e38b0b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Zm9yZXN0JTIwd2l0aCUyMG1vdW50YWluJTIwaGR8ZW58MHx8MHx8fDA%3D);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        height: 847px;
+        flex-direction: column;
+        color: whitesmoke;
+        margin-top: 40px;
+    }
+
+    .section2 h1 {
+        font-size: 30px;
+    }
+
+    .section2 p {
+        font-size: 20px;
+    }
+
+    .section3 {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 50px 0px
+    }
+
+    .box {
+        width: 200px;
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+        transform: scale(1.05);
+    }
+
+    .box img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        background-color: aqua;
+        padding: 30px 20px;
+    }
+
+    .quick {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .quick a {
+        display: block;
+        color: white;
+        text-decoration: none;
+
+    }
+
+    .subscribe {
+        padding: 50px;
+    }
+
+    .subscribe input {
+        border-radius: 10px;
+        height: 25px;
+    }
+
+    .subscribe button {
+        border-radius: 20px;
+        height: 30px;
+        background-color: rgba(96, 96, 233, 0.477);
+        width: 130px;
+    }
+
+    @media (max-width: 1024px) {
+        .header {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px 20px;
+            gap: 10px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section1 h1,
+        .section2 h1 {
+            font-size: 24px;
+            padding: 0 10px;
+        }
+
+        .section1 p,
+        .section2 p {
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        .section3 {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 320px;
+        }
+
+        .footer {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .quick,
+        .subscribe {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px 0;
+        }
+
+        .subscribe input {
+            width: 80%;
+            max-width: 300px;
+            margin: 5px 0;
+        }
+
+        .subscribe button {
+            width: 80%;
+            max-width: 150px;
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .section1,
+        .section2 {
+            height: auto;
+            padding: 40px 10px;
+        }
+
+        .section3 {
+            gap: 20px;
+        }
+
+        .box img {
+            height: 180px;
+        }
+
+        .footer {
+            padding: 20px 10px;
+        }
+
+        .quick a {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h1><b>Explorer</b></h1>
+        </div>
+        <div class="menu">
+            <a href="">Home</a>
+            <a href="">Type of Nature</a>
+            <a href="">Gallery</a>
+            <a href="">Contact</a>
+        </div>
+    </div>
+    <div class="section1">
+        <h1>Welcome to the Beauty of Nature</h1>
+        <p>Explore the vast oceans, green forest and breathtaking landscapes of our planet</p>
+    </div>
+    <div class="section2">
+        <h1>Discover Different types of Nature</h1>
+        <p>From towering mountains to deep blue seas, nature is full of wonders waiting to be explored</p>
+    </div>
+    <div class="section3">
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0fGVufDB8fDB8fHww"
+                alt="">
+            <h3>Forests</h3>
+            <p>Forests are home to diverse wildlife and provide fresh air and serenity</p>
+        </div>
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1542031047-fa05266f220a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fG9jZWFuc3xlbnwwfHwwfHx8MA%3D%3D"
+                alt="">
+            <h3>Oceans</h3>
+            <p>Oceans cover 70% of the Earth's surface and are full of life and mystery</p>
+        </div>
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW91bnRhaW5zfGVufDB8fDB8fHww"
+                alt="">
+            <h3>Mountains</h3>
+            <p>Mountains stand tall and majestic offering breathtaking views and challenges for climbers</p>
+        </div>
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1488197047962-b48492212cda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGVzZXJ0c3xlbnwwfHwwfHx8MA%3D%3D"
+                alt="Image">
+            <h3>Deserts</h3>
+            <p>Deserts are vast and arid landscapes, home to unique flora and fauna adapted to extreme conditions</p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="quick">
+            <h3>Quick Menu</h3>
+            <a href="">Home</a>
+            <a href="">Type of Nature</a>
+            <a href="">Gallery</a>
+            <a href="">Contact</a>
+        </div>
+        <div class="subscribe">
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <button type="submit">Subscribe</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
