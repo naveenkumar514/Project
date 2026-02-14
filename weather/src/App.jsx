@@ -15,7 +15,6 @@ function App() {
       setLoading(true);
       setError("");
 
-      // 1️⃣ Geocoding API
       const geoRes = await axios.get(
         `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
       );
@@ -27,7 +26,6 @@ function App() {
       const { latitude, longitude, name, country } = geoData.results[0];
       setLocation(`${name}, ${country}`);
 
-      // 2️⃣ Weather API
       const weatherRes = await axios.get(
         `https://api.open-meteo.com/v1/forecast`,
         {
